@@ -1,8 +1,12 @@
 import React from "react";
 
-const UserDetails = ({ params }: { params: { id: string; slug: string } }) => {
-  console.log(params.id, params.slug);
-  return <div>UserDetails page | {params.id}</div>;
+const UserDetails = async ({
+  params,
+}: {
+  params: Promise<{ id: string; slug: string }>;
+}) => {
+  const { id } = await params;
+  return <div>UserDetails page | {id}</div>;
 };
 
 export default UserDetails;
